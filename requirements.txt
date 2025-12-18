@@ -1,7 +1,0 @@
-React 18.x
-React-DOM 18.x
-Vite 5.x
-vis-network 9.x
-Plotly.js 2.x
-React-Plotly.js 2.x
-Bootstrap 5.x
