@@ -1,0 +1,21 @@
+/* src/styles/addressTimeline.css */
+
+.timeline-card {
+  background: linear-gradient(135deg, #020617, #020617);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.timeline-empty {
+  color: #94a3b8;
+  font-size: 14px;
+  padding: 20px;
+}
+
