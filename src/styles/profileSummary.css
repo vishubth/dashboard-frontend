@@ -1,0 +1,83 @@
+.profile-page {
+  background: #0f172a;
+  color: white;
+  padding: 32px;
+  font-family: system-ui;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #334155;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  color: #94a3b8;
+}
+
+.print-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.section {
+  margin-bottom: 28px;
+}
+
+.section h2 {
+  border-bottom: 1px solid #334155;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.subsection h3 {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.label {
+  width: 220px;
+  color: #94a3b8;
+}
+
+.block {
+  border: 1px solid #334155;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.map-link {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* PRINT / PDF */
+@media print {
+  .print-btn {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .profile-page {
+    background: white;
+    color: black;
+  }
+}
