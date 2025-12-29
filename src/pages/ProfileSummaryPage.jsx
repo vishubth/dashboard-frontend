@@ -5,7 +5,10 @@ export default function ProfileSummaryPage() {
 
   useEffect(() => {
     const cached = localStorage.getItem("ACTIVE_PROFILE");
-    if (cached) setData(JSON.parse(cached));
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      setData(parsed.data);
+    }
   }, []);
 
   if (!data) {
