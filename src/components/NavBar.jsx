@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { createProfileRequest } from "../utils/userApi";
+import { useAuth } from "../context/AuthContext";
+
 
 export default function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { logout } = useAuth();
   const authUser = JSON.parse(localStorage.getItem("AUTH_USER"));
   const role = authUser?.role;
 
@@ -18,7 +20,7 @@ export default function NavBar() {
   const [loading, setLoading] = useState(false);
 
   function logout() {
-    localStorage.removeItem("AUTH_USER");
+    logout();
     navigate("/login");
   }
 
