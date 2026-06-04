@@ -5,11 +5,11 @@ import {
   fetchProfileRequests,
   createProfileRequest,
 } from "../utils/userApi";
+import { API_BASE } from "../config/api";
 
 export default function UserHomePage() {
   const navigate = useNavigate();
   const authUser = JSON.parse(localStorage.getItem("AUTH_USER"));
-  const API_BASE = "https://dashboard-backend-api-ocr5.onrender.com";
 
   const [stats, setStats] = useState(null);
   const [requests, setRequests] = useState([]);
