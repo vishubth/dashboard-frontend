@@ -1,4 +1,4 @@
-const API_BASE = "https://dashboard-backend-api-ocr5.onrender.com";
+import { API_BASE } from "../config/api";
 
 function authHeader() {
   const auth = JSON.parse(localStorage.getItem("AUTH_USER"));
