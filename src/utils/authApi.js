@@ -1,6 +1,4 @@
-// src/services/authApi.js
-
-const API_BASE = "https://dashboard-backend-api-ocr5.onrender.com"; // change if needed
+import { API_BASE } from "../config/api";
 
 export async function loginUser(email, password) {
   const res = await fetch(`${API_BASE}/auth/login`, {
@@ -16,13 +14,5 @@ export async function loginUser(email, password) {
     throw new Error(err.detail || "Login failed");
   }
 
-  return res.json(); 
-  /*
-    Expected FastAPI response shape:
-    {
-      "email": "user@example.com",
-      "role": "user" | "admin",
-      "access_token": "jwt-token"
-    }
-  */
+  return res.json();
 }
