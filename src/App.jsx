@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 import LoginPage from "./pages/LoginPage";
 import UserHomePage from "./pages/UserHomePage";
@@ -45,13 +46,50 @@ export default function App() {
           <Route path="/login" element={<LoginPage />} />
 
           {/* USER FLOW */}
-          <Route path="/user" element={<UserHomePage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/summary" element={<ProfileSummaryPage />} />
-
-          {/* ADMIN FLOW */}
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/data" element={<DataIntakePage />} />
+          <Route
+              path="/user"
+              element={
+                <ProtectedRoute>
+                  <UserHomePage />
+                </ProtectedRoute>
+              }
+            />
+            
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            />
+            
+            <Route
+              path="/summary"
+              element={
+                <ProtectedRoute>
+                  <ProfileSummaryPage />
+                </ProtectedRoute>
+              }
+            />
+            
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <AdminPage />
+                </ProtectedRoute>
+              }
+            />
+            
+            <Route
+              path="/data"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <DataIntakePage />
+                </ProtectedRoute>
+              }
+            />
         </Routes>
       </Layout>
     </BrowserRouter>
