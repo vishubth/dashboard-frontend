@@ -5,9 +5,8 @@ export default function ProtectedRoute({
   children,
   requireAdmin = false,
 }) {
-  const auth = JSON.parse(
-    localStorage.getItem("AUTH_USER") || "null"
-  );
+  import { useAuth } from "../../context/AuthContext";
+  const { auth } = useAuth();
 
   if (!auth?.token) {
     return <Navigate to="/login" replace />;
