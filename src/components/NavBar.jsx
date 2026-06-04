@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 export default function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { logout } = useAuth();
+  const { logout: authLogout } = useAuth();
   const authUser = JSON.parse(localStorage.getItem("AUTH_USER"));
   const role = authUser?.role;
 
@@ -19,8 +19,8 @@ export default function NavBar() {
   const [extraInfo, setExtraInfo] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function logout() {
-    logout();
+  function handleLogout() {
+    authLogout();
     navigate("/login");
   }
 
@@ -80,7 +80,7 @@ export default function NavBar() {
 
         {/* RIGHT */}
         <div style={styles.right}>
-          <button style={styles.logoutBtn} onClick={logout}>Logout</button>
+          <button style={styles.logoutBtn} onClick={handleLogout}>Logout</button>
         </div>
       </nav>
 
