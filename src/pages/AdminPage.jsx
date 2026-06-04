@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API_BASE = "https://dashboard-backend-api-ocr5.onrender.com";
+import { API_BASE } from "../config/api";
 
 export default function AdminPage() {
   const token = JSON.parse(localStorage.getItem("AUTH_USER"))?.token;
