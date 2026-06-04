@@ -1,5 +1,10 @@
 # AI Profile Intelligence Portal
 
+![React](https://img.shields.io/badge/React-18+-blue)
+![Vite](https://img.shields.io/badge/Vite-Frontend-purple)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-cyan)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 A modern React-based intelligence portal for visualizing and exploring structured profiles generated from AI-powered document analysis.
 
 ## Project Overview
@@ -7,6 +12,22 @@ A modern React-based intelligence portal for visualizing and exploring structure
 The portal serves as the user-facing layer of the document intelligence platform. It converts structured extraction results into interactive dashboards, timelines, charts, and analytics views that help users quickly understand complex information.
 
 Rather than reading raw documents, users can navigate a visual representation of extracted entities, financial information, address history, education history, employment records, and profile intelligence.
+
+## Screenshots
+
+Dashboard screenshots and demo assets coming soon.
+
+## Architecture
+
+```text
+React Frontend
+      ↓
+REST APIs
+      ↓
+AI Document Intelligence Engine
+      ↓
+Structured Profile Data
+```
 
 ## Key Features
 
@@ -29,17 +50,11 @@ Rather than reading raw documents, users can navigate a visual representation of
 - Admin interfaces
 - API-driven architecture
 
-## Architecture
-
-React Frontend
-→ REST APIs
-→ AI Document Intelligence Engine
-→ Structured Profile Data
-
 ## Technology Stack
 
 - React
 - JavaScript
+- Vite
 - Tailwind CSS
 - Component-based architecture
 
@@ -73,4 +88,4 @@ Large document collections often hide important information in unstructured form
 
 ## License
 
-Private Repository
+MIT
