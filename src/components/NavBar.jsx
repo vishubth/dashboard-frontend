@@ -7,8 +7,12 @@ import { useAuth } from "../context/AuthContext";
 export default function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { logout: authLogout } = useAuth();
-  const authUser = JSON.parse(localStorage.getItem("AUTH_USER"));
+  const {
+    auth,
+    logout: authLogout
+  } = useAuth();
+  
+  const authUser = auth;
   const role = authUser?.role;
 
   const isUserHome = location.pathname === "/user";
