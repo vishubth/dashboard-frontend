@@ -8,6 +8,7 @@ import {
 
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 import LoginPage from "./pages/LoginPage";
 import UserHomePage from "./pages/UserHomePage";
@@ -38,60 +39,62 @@ function Layout({ children }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          {/* LOGIN (root entry) */}
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/login" element={<LoginPage />} />
-
-          {/* USER FLOW */}
-          <Route
-              path="/user"
-              element={
-                <ProtectedRoute>
-                  <UserHomePage />
-                </ProtectedRoute>
-              }
-            />
-            
+    <AuthProvider>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            {/* LOGIN (root entry) */}
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage />} />
+  
+            {/* USER FLOW */}
             <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <DashboardPage />
-                </ProtectedRoute>
-              }
-            />
-            
-            <Route
-              path="/summary"
-              element={
-                <ProtectedRoute>
-                  <ProfileSummaryPage />
-                </ProtectedRoute>
-              }
-            />
-            
-            <Route
-              path="/admin"
-              element={
-                <ProtectedRoute requireAdmin>
-                  <AdminPage />
-                </ProtectedRoute>
-              }
-            />
-            
-            <Route
-              path="/data"
-              element={
-                <ProtectedRoute requireAdmin>
-                  <DataIntakePage />
-                </ProtectedRoute>
-              }
-            />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+                path="/user"
+                element={
+                  <ProtectedRoute>
+                    <UserHomePage />
+                  </ProtectedRoute>
+                }
+              />
+              
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <DashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+              
+              <Route
+                path="/summary"
+                element={
+                  <ProtectedRoute>
+                    <ProfileSummaryPage />
+                  </ProtectedRoute>
+                }
+              />
+              
+              <Route
+                path="/admin"
+                element={
+                  <ProtectedRoute requireAdmin>
+                    <AdminPage />
+                  </ProtectedRoute>
+                }
+              />
+              
+              <Route
+                path="/data"
+                element={
+                  <ProtectedRoute requireAdmin>
+                    <DataIntakePage />
+                  </ProtectedRoute>
+                }
+              />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+  </AuthProvider>
   );
 }
