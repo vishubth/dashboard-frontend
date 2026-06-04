@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../utils/authApi";
+import { useAuth } from "../context/AuthContext";
+const { login } = useAuth();
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -19,14 +21,11 @@ export default function LoginPage() {
       const data = await loginUser(email, password);
 
       // Save auth info (simple & backend-friendly)
-      localStorage.setItem(
-        "AUTH_USER",
-        JSON.stringify({
+      login({
           email: data.email,
           role: data.role,
           token: data.access_token,
-        })
-      );
+        });
 
       // Role-based redirect
       if (data.role === "admin") {
